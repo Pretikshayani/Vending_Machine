@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Payment</title>
+    <link rel="stylesheet" href="card_payment.css">
+</head>
+<body>
+    <h1>Pay with Card</h1>
+    <p>Please enter your card details to proceed with the payment.</p>
+    <form id="cardForm" onsubmit="return handlePayment(event)">
+        <label for="cardNumber">Card Number:</label>
+        <input type="text" id="cardNumber" name="cardNumber" required placeholder="Enter your card number">
+        <span id="cardError" style="color: red; display: none;">Invalid card number. Must be 16 digits.</span>
+
+        <label for="expiryDate">Expiry Date (MM/YY):</label>
+        <input type="text" id="expiryDate" name="expiryDate" required placeholder="MM/YY">
+        <span id="expiryError" style="color: red; display: none;">Invalid expiry date. Must be in MM/YY format.</span>
+
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" name="cvv" required placeholder="Enter CVV(123)">
+        <span id="cvvError" style="color: red; display: none;">Invalid CVV. Must be 3 digits.</span>
+
+        <button type="submit">PAY</button>
+    </form>
+    
+    <!-- Payment Successful Popup -->
+    <div id="paymentPopup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <h2>Payment Successful</h2>
+            <button onclick="goBack()">OK</button>
+        </div>
+    </div>
+
+    <script>
+        function validateCardNumber(cardNumber) {
+            // Check if the card number has exactly 16 digits (allowing spaces)
+            const cardPattern = /^[0-9]{4}\s?[0-9]{4}\s?[0-9]{4}\s?[0-9]{4}$/;
+            return cardPattern.test(cardNumber);
+        }
+
+        function validateExpiryDate(expiryDate) {
+            // Check if expiry date is in MM/YY format
+            const expiryPattern = /^(0[1-9]|1[0-2])\/\d{2}$/;
+            return expiryPattern.test(expiryDate);
+        }
+
+        function validateCVV(cvv) {
+            // Check if CVV is exactly 3 digits
+            const cvvPattern = /^[0-9]{3}$/;
+            return cvvPattern.test(cvv);
+        }
+
+        function handlePayment(event) {
+            event.preventDefault(); // Prevent form from submitting
+
+            const cardNumber = document.getElementById('cardNumber').value;
+            const expiryDate = document.getElementById('expiryDate').value;
+            const cvv = document.getElementById('cvv').value;
+
+            const cardError = document.getElementById('cardError');
+            const expiryError = document.getElementById('expiryError');
+            const cvvError = document.getElementById('cvvError');
+
+            let valid = true;
+
+            // Validate card number
+            if (!validateCardNumber(cardNumber)) {
+                cardError.style.display = 'block';
+                valid = false;
+            } else {
+                cardError.style.display = 'none';
+            }
+
+            // Validate expiry date
+            if (!validateExpiryDate(expiryDate)) {
+                expiryError.style.display = 'block';
+                valid = false;
+            } else {
+                expiryError.style.display = 'none';
+            }
+
+            // Validate CVV
+            if (!validateCVV(cvv)) {
+                cvvError.style.display = 'block';
+                valid = false;
+            } else {
+                cvvError.style.display = 'none';
+            }
+
+            if (valid) {
+                // Show the payment success popup if all fields are valid
+                document.getElementById('paymentPopup').style.display = 'flex';
+            }
+        }
+
+        function closePopup() {
+            // Close the popup
+            document.getElementById('paymentPopup').style.display = 'none';
+        }
+        function goBack() {
+            // Close the popup and go back to the previous page
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

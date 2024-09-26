@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPI Payment</title>
+    <link rel="stylesheet" href="upi_payment.css">
+</head>
+<body>
+    <h1>Pay with UPI</h1>
+    <p>Please enter your UPI ID to proceed with the payment.</p>
+    <form id="upiForm" onsubmit="return handlePayment(event)">
+        <label for="upiId">UPI ID:</label>
+        <input type="text" id="upiId" name="upiId" required>
+        <button type="submit">PAY</button>
+    </form>
+
+    <!-- Payment Successful Popup -->
+    <div id="paymentPopup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <h2>Payment Successful</h2>
+            <button onclick="goBack()">OK</button>
+        </div>
+    </div>
+
+    <script>
+        function handlePayment(event) {
+            event.preventDefault(); // Prevent form from submitting
+
+            // Show the payment success popup
+            document.getElementById('paymentPopup').style.display = 'flex';
+        }
+
+        function goBack() {
+            // Close the popup and go back to the previous page
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

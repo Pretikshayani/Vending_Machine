@@ -1,0 +1,204 @@
+/* Body */
+body {
+    font-family: 'Roboto', sans-serif; /* Apply the modern font */
+}
+.container {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 20px; /* Increased gap between cards */
+    justify-items: center; /* Center align items within the container */
+    margin: 0 auto; /* Center the container within its parent */
+}
+
+/* Payments */
+.payments .details {
+    color: #ffffff; /* Changed to white for better visibility */
+    display: grid;
+    grid-template-columns: 10fr 1fr;
+    padding: 0px;
+    gap: 5px;
+}
+
+.payments .details span:nth-child(odd) {
+    font-size: 12px;
+    font-weight: 600;
+    color: #ffffff; /* White text */
+}
+
+.payments .details span:nth-child(even) {
+    font-size: 13px;
+    font-weight: 600;
+    color: #ffffff; /* White text */
+}
+
+/* Additional CSS remains unchanged */
+hr {
+    width: 100%;
+    height: 1px;
+    background-color: #2e2e2e; /* Dark gray line */
+    border: none;
+}
+
+.card {
+    width: 400px;
+    background: #1c1c1c; /* Dark background for a professional look */
+    border-radius: 10px; /* Added rounded corners for a smoother look */
+    box-shadow:
+        0px 187px 75px rgba(0, 0, 0, 0.01),
+        0px 105px 63px rgba(0, 0, 0, 0.05),
+        0px 47px 47px rgba(0, 0, 0, 0.09),
+        0px 12px 26px rgba(0, 0, 0, 0.1),
+        0px 0px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.title {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    border-bottom: 1px solid #2e2e2e; /* Dark gray */
+    font-weight: 700;
+    font-size: 16px; /* Increased font size for better readability */
+    color: #ffffff; /* White text */
+}
+
+/* Cart */
+.cart {
+    border-radius: 10px 10px 0 0; /* Adjusted border radius */
+}
+
+.cart .steps {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.cart .steps .step {
+    display: grid;
+    gap: 10px;
+}
+
+.cart .steps .step span {
+    font-size: 14px; /* Increased font size */
+    font-weight: 600;
+    color: #ffffff; /* White text */
+    margin-bottom: 8px;
+    display: block;
+}
+
+.cart .steps .step p {
+    font-size: 12px; /* Increased font size */
+    font-weight: 600;
+    color: #bbbbbb; /* Light gray text */
+}
+.payment-options {
+    margin-top: 10px;
+    color: #ffffff; /* White text for payment options */
+}
+/* Promo */
+.promo form {
+    display: grid;
+    grid-template-columns: 1fr 80px;
+    gap: 10px;
+    padding: 0px;
+}
+
+.input_field {
+    height: 36px;
+    padding: 0 12px; /* Consistent padding */
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #2e2e2e; /* Dark gray */
+    background-color: #333333; /* Dark input background */
+    color: #ffffff; /* White text */
+    transition: all 0.3s ease;
+}
+
+.input_field:focus {
+    border: 1px solid transparent;
+    box-shadow: 0px 0px 0px 2px #555555; /* Light gray focus */
+    background-color: #444444; /* Slightly lighter on focus */
+}
+
+.promo form button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 18px;
+    background: #555555; /* Medium gray button */
+    border-radius: 5px;
+    border: 0;
+    font-weight: 600;
+    font-size: 12px;
+    color: #ffffff; /* White text */
+    transition: all 0.3s ease;
+}
+
+/* Checkout */
+.checkout .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px; /* Consistent padding */
+    background-color: #2e2e2e; /* Dark gray background */
+}
+
+.price {
+    font-size: 22px;
+    color: #ffffff; /* White text */
+    font-weight: 900;
+}
+
+.checkout .checkout-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 36px;
+    background: #555555; /* Medium gray button */
+    border-radius: 7px;
+    border: 1px solid #2e2e2e; /* Dark gray border */
+    color: #ffffff; /* White text */
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.checkout .checkout-btn:hover {
+    background-color: #777777; /* Slightly lighter gray on hover */
+}
+
+/* Payments */
+.payments .details {
+    color: #ffffff; /* Changed to white for better visibility */
+    display: grid;
+    grid-template-columns: 10fr 1fr;
+    padding: 0px;
+    gap: 5px;
+}
+
+.payments .details span:nth-child(odd),
+.payments .details span:nth-child(even) {
+    font-size: 12px;
+    font-weight: 600;
+    color: #ffffff; /* White text */
+}
+
+/* Bill Items */
+.bill-items {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 10px 0; /* Space between items */
+}
+
+.bill-items li {
+    background-color: #333333; /* Dark background for each bill item */
+    padding: 10px;
+    margin: 5px 0; /* Space between items */
+    color: #ffffff; /* Change text color to white for visibility */
+    border-radius: 4px; /* Rounded corners for bill items */
+}
+
+/* Other existing CSS styles remain unchanged */

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="confirmation.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Thank You for Your Purchase!</h1>
+        <p>Your order has been confirmed. Here are the details:</p>
+
+        <div class="order-summary">
+            <h2>Order Summary</h2>
+            <ul class="order-items"></ul>
+            <div class="total">
+                <strong>Total Amount:</strong>
+                <span class="total-amount"></span>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button onclick="window.location.href='index.html'">Continue Shopping</button>
+            <button onclick="window.location.href='viewOrders.php'">View My Orders</button>
+        </div>
+    </div>
+
+    <script>
+        // Populate order summary from localStorage or passed data
+        document.addEventListener('DOMContentLoaded', () => {
+            const orderItemsList = document.querySelector('.order-items');
+            const totalAmountElement = document.querySelector('.total-amount');
+
+            // Retrieve bill data from localStorage
+            const billItems = JSON.parse(localStorage.getItem('billItems')) || [];
+            const totalAmount = parseFloat(localStorage.getItem('totalAmount')) || 0;
+
+            // Populate order items
+            if (billItems.length > 0) {
+                billItems.forEach(item => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `${item.name} - Quantity: ${item.quantity} - Price: ₹${(item.price * item.quantity).toFixed(2)}`;
+                    orderItemsList.appendChild(listItem);
+                });
+            } else {
+                orderItemsList.innerHTML = '<li>No items in your order.</li>';
+            }
+
+            // Display total amount
+            totalAmountElement.textContent = `₹${totalAmount.toFixed(2)}`;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Bill</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="bill.css">
+    <script src="bill.js" defer></script> <!-- Loading JS after DOM is ready -->
+</head>
+<body>
+    <div class="container">
+        <div class="payment-section">
+            <div class="card cart">
+                <label class="title">CHECKOUT</label>
+                <div class="steps">
+                    <div class="step">
+                        <div>
+                            <span>PAYMENT METHOD</span>
+                            <div class="payment-options">
+                                <label>
+                                    <input type="radio" name="payment-method" value="card" checked onclick="togglePaymentFields()">
+                                    Card
+                                </label>
+                                <label>
+                                    <input type="radio" name="payment-method" value="upi" onclick="togglePaymentFields()">
+                                    UPI
+                                </label>
+                            </div>
+                            <br>
+
+                            <!-- Card payment fields -->
+                            <div id="card-fields" class="payment-fields">
+                                <input type="text" placeholder="Card Number" class="input_field" required /><br><br>
+                                <input type="text" placeholder="Expiry Date (MM/YY)" class="input_field" required /><br><br>
+                                <input type="text" placeholder="CVV" class="input_field" required /><br><br>
+                            </div>
+
+                            <!-- UPI payment field -->
+                            <div id="upi-fields" class="payment-fields" style="display:none;">
+                                <input type="text" placeholder="UPI ID" class="input_field" required />
+                            </div>
+                        </div>
+
+                        <hr />
+                        <div class="promo">
+                            <span>HAVE A PROMO CODE?</span>
+                            <form class="form" onsubmit="applyPromoCode(event)">
+                                <input class="input_field" placeholder="Enter a Promo Code" type="text" />
+                                <button type="submit">Apply</button>
+                            </form>
+                        </div>
+                        <hr />
+                        <div class="payments">
+                            <span>PAYMENT DETAILS</span>
+                            <ul class="bill-items"></ul> <!-- This is where the bill items will be populated -->
+                            <div class="details">
+                                <span>Subtotal:</span>
+                                <span class="subtotal">0.00</span>
+                                <span>Tax:</span>
+                                <span class="tax">0.00</span><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card checkout">
+                <div class="footer">
+                    
+                    <label class="price">0.00</label> <!-- Total amount to be displayed here -->
+                    <br>
+                    <button class="checkout-btn" onclick="completeCheckout()">Checkout</button>
+                    <button class="checkout-btn" onclick="window.location.href='userview.html'">Go Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

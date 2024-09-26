@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details</title>
+  <link rel="stylesheet" href="product_details.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Product Details</h1>
+      <button id="backButton">Back to Dashboard</button>
+    </header>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Update</th> <!-- Added Update Column -->
+        </tr>
+      </thead>
+      <tbody id="productTableBody">
+        <!-- Product rows will be inserted here -->
+      </tbody>
+    </table>
+    <button id="saveButton">Save Changes</button> <!-- Save Button -->
+  </div>
+
+  <script src="product_details.js"></script>
+</body>
+</html>

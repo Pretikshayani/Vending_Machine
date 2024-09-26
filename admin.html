@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Admin Dashboard</h1>
+      <nav>
+        <ul>
+          <li><a href="product_details.html">Product Details</a></li>
+          <li><a href="user_details.html">User Details</a></li>
+        </ul>
+      </nav>
+      <button id="logoutButton">Logout</button>
+    </header>
+    <div class="charts">
+      <div class="chart-container">
+        <h2>Items in Cart</h2>
+        <canvas id="cartChart"></canvas>
+      </div>
+      <div class="quantity-controls">
+        <h3>Update Item Quantities</h3>
+        <select id="itemSelect">
+          <!-- Options will be populated by JavaScript -->
+        </select>
+        <input type="number" id="quantityInput" placeholder="New Quantity" min="0">
+        <button id="updateQuantityButton">Update Quantity</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
