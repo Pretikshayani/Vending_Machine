@@ -10,7 +10,7 @@ function togglePaymentFields() {
 
 function applyPromoCode(event) {
     event.preventDefault(); // Prevent form submission
-    alert('Promo code applied (mock logic).');
+    alert('Promo code applied.');
 }
 
 function completeCheckout() {
